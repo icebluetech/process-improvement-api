@@ -1,0 +1,9 @@
+C:\github\process-improvement-api\api\bin\Debug\netcoreapp1.0\api.deps.json
+C:\github\process-improvement-api\api\bin\Debug\netcoreapp1.0\api.runtimeconfig.json
+C:\github\process-improvement-api\api\bin\Debug\netcoreapp1.0\api.runtimeconfig.dev.json
+C:\github\process-improvement-api\api\bin\Debug\netcoreapp1.0\api.dll
+C:\github\process-improvement-api\api\bin\Debug\netcoreapp1.0\api.pdb
+C:\github\process-improvement-api\api\obj\Debug\netcoreapp1.0\api.csprojResolveAssemblyReference.cache
+C:\github\process-improvement-api\api\obj\Debug\netcoreapp1.0\api.AssemblyInfo.cs
+C:\github\process-improvement-api\api\obj\Debug\netcoreapp1.0\api.dll
+C:\github\process-improvement-api\api\obj\Debug\netcoreapp1.0\api.pdb
