@@ -1,0 +1,6 @@
+C:\github\process-improvement-api\model\bin\Debug\netcoreapp1.1\model.deps.json
+C:\github\process-improvement-api\model\bin\Debug\netcoreapp1.1\model.dll
+C:\github\process-improvement-api\model\bin\Debug\netcoreapp1.1\model.pdb
+C:\github\process-improvement-api\model\obj\Debug\netcoreapp1.1\model.AssemblyInfo.cs
+C:\github\process-improvement-api\model\obj\Debug\netcoreapp1.1\model.dll
+C:\github\process-improvement-api\model\obj\Debug\netcoreapp1.1\model.pdb

@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.Swagger.Model;
+using data;
+using Microsoft.EntityFrameworkCore;
 
 namespace process_improvement_api
 {
@@ -30,6 +32,9 @@ namespace process_improvement_api
         {
             // Add framework services.
             services.AddMvc();
+
+            var connection = @"Server=tcp:process-improvement.database.windows.net,1433;Initial Catalog=process-improvement-db;Persist Security Info=False;User ID=chrischeshire;Password=kikibubz1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            services.AddDbContext<ProcessImprovementContext>(options => options.UseSqlServer(connection));
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen();
