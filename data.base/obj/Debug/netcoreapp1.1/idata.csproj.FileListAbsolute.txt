@@ -1,0 +1,11 @@
+C:\github\process-improvement-api\data.base\bin\Debug\netcoreapp1.1\idata.deps.json
+C:\github\process-improvement-api\data.base\bin\Debug\netcoreapp1.1\idata.dll
+C:\github\process-improvement-api\data.base\bin\Debug\netcoreapp1.1\idata.pdb
+C:\github\process-improvement-api\data.base\obj\Debug\netcoreapp1.1\idata.csprojResolveAssemblyReference.cache
+C:\github\process-improvement-api\data.base\obj\Debug\netcoreapp1.1\idata.AssemblyInfo.cs
+C:\github\process-improvement-api\data.base\obj\Debug\netcoreapp1.1\idata.dll
+C:\github\process-improvement-api\data.base\obj\Debug\netcoreapp1.1\idata.pdb
+C:\github\process-improvement-api\data.base\bin\Debug\netcoreapp1.1\imodel.dll
+C:\github\process-improvement-api\data.base\bin\Debug\netcoreapp1.1\model.dll
+C:\github\process-improvement-api\data.base\bin\Debug\netcoreapp1.1\model.pdb
+C:\github\process-improvement-api\data.base\bin\Debug\netcoreapp1.1\imodel.pdb

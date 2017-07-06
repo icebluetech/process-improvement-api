@@ -1,0 +1,7 @@
+C:\github\process-improvement-api\imodel\bin\Debug\netcoreapp1.1\imodel.deps.json
+C:\github\process-improvement-api\imodel\bin\Debug\netcoreapp1.1\imodel.dll
+C:\github\process-improvement-api\imodel\bin\Debug\netcoreapp1.1\imodel.pdb
+C:\github\process-improvement-api\imodel\obj\Debug\netcoreapp1.1\imodel.csprojResolveAssemblyReference.cache
+C:\github\process-improvement-api\imodel\obj\Debug\netcoreapp1.1\imodel.AssemblyInfo.cs
+C:\github\process-improvement-api\imodel\obj\Debug\netcoreapp1.1\imodel.dll
+C:\github\process-improvement-api\imodel\obj\Debug\netcoreapp1.1\imodel.pdb

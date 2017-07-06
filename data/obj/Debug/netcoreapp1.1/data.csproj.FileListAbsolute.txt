@@ -7,3 +7,7 @@ C:\github\process-improvement-api\data\obj\Debug\netcoreapp1.1\data.csprojResolv
 C:\github\process-improvement-api\data\obj\Debug\netcoreapp1.1\data.AssemblyInfo.cs
 C:\github\process-improvement-api\data\obj\Debug\netcoreapp1.1\data.dll
 C:\github\process-improvement-api\data\obj\Debug\netcoreapp1.1\data.pdb
+C:\github\process-improvement-api\data\bin\Debug\netcoreapp1.1\idata.dll
+C:\github\process-improvement-api\data\bin\Debug\netcoreapp1.1\imodel.dll
+C:\github\process-improvement-api\data\bin\Debug\netcoreapp1.1\idata.pdb
+C:\github\process-improvement-api\data\bin\Debug\netcoreapp1.1\imodel.pdb

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using imodel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace model
 {
-    public class Innovation
+    public class Innovation : IInnovation
     {
         public int Id { get; set; }
         public string Name { get; set; }

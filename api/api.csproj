@@ -27,6 +27,7 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\data.base\idata.csproj" />
     <ProjectReference Include="..\data\data.csproj" />
     <ProjectReference Include="..\model\model.csproj" />
   </ItemGroup>

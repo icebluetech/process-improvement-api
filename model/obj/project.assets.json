@@ -2266,6 +2266,13 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "imodel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2"
+        }
       }
     }
   },
@@ -7029,11 +7036,17 @@
         "system.xml.xpath.xdocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "imodel/1.0.0": {
+      "type": "project",
+      "path": "../imodel/imodel.csproj",
+      "msbuildProject": "../imodel/imodel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1": [
-      "Microsoft.NETCore.App >= 1.1.2"
+      "Microsoft.NETCore.App >= 1.1.2",
+      "imodel >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -7052,7 +7065,11 @@
       ],
       "frameworks": {
         "netcoreapp1.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\github\\process-improvement-api\\imodel\\imodel.csproj": {
+              "projectPath": "C:\\github\\process-improvement-api\\imodel\\imodel.csproj"
+            }
+          }
         }
       }
     },

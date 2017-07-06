@@ -2811,11 +2811,27 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "model/1.0.0": {
+      "idata/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2",
+          "model": "1.0.0"
+        }
+      },
+      "imodel/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v1.1",
         "dependencies": {
           "Microsoft.NETCore.App": "1.1.2"
+        }
+      },
+      "model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2",
+          "imodel": "1.0.0"
         }
       }
     }
@@ -8146,6 +8162,16 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "idata/1.0.0": {
+      "type": "project",
+      "path": "../data.base/idata.csproj",
+      "msbuildProject": "../data.base/idata.csproj"
+    },
+    "imodel/1.0.0": {
+      "type": "project",
+      "path": "../imodel/imodel.csproj",
+      "msbuildProject": "../imodel/imodel.csproj"
+    },
     "model/1.0.0": {
       "type": "project",
       "path": "../model/model.csproj",
@@ -8158,6 +8184,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.2",
       "Microsoft.EntityFrameworkCore.Tools >= 1.1.1",
       "Microsoft.NETCore.App >= 1.1.2",
+      "idata >= 1.0.0",
       "model >= 1.0.0"
     ]
   },
@@ -8180,6 +8207,9 @@
           "projectReferences": {
             "C:\\github\\process-improvement-api\\model\\model.csproj": {
               "projectPath": "C:\\github\\process-improvement-api\\model\\model.csproj"
+            },
+            "C:\\github\\process-improvement-api\\data.base\\idata.csproj": {
+              "projectPath": "C:\\github\\process-improvement-api\\data.base\\idata.csproj"
             }
           }
         }

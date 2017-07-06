@@ -4225,14 +4225,31 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.2",
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
           "Microsoft.NETCore.App": "1.1.2",
+          "idata": "1.0.0",
           "model": "1.0.0"
+        }
+      },
+      "idata/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2",
+          "model": "1.0.0"
+        }
+      },
+      "imodel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2"
         }
       },
       "model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v1.1",
         "dependencies": {
-          "Microsoft.NETCore.App": "1.1.2"
+          "Microsoft.NETCore.App": "1.1.2",
+          "imodel": "1.0.0"
         }
       }
     }
@@ -10883,6 +10900,16 @@
       "path": "../data/data.csproj",
       "msbuildProject": "../data/data.csproj"
     },
+    "idata/1.0.0": {
+      "type": "project",
+      "path": "../data.base/idata.csproj",
+      "msbuildProject": "../data.base/idata.csproj"
+    },
+    "imodel/1.0.0": {
+      "type": "project",
+      "path": "../imodel/imodel.csproj",
+      "msbuildProject": "../imodel/imodel.csproj"
+    },
     "model/1.0.0": {
       "type": "project",
       "path": "../model/model.csproj",
@@ -10905,6 +10932,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 1.1.1",
       "Swashbuckle >= 6.0.0-beta902",
       "data >= 1.0.0",
+      "idata >= 1.0.0",
       "model >= 1.0.0"
     ]
   },
@@ -10930,6 +10958,9 @@
             },
             "C:\\github\\process-improvement-api\\data\\data.csproj": {
               "projectPath": "C:\\github\\process-improvement-api\\data\\data.csproj"
+            },
+            "C:\\github\\process-improvement-api\\data.base\\idata.csproj": {
+              "projectPath": "C:\\github\\process-improvement-api\\data.base\\idata.csproj"
             }
           }
         }

@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\data.base\idata.csproj" />
     <ProjectReference Include="..\model\model.csproj" />
   </ItemGroup>
 

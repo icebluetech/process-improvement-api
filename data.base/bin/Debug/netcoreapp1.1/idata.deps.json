@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v1.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v1.1": {
+      "idata/1.0.0": {
+        "dependencies": {
+          "model": "1.0.0"
+        },
+        "runtime": {
+          "idata.dll": {}
+        }
+      },
+      "imodel/1.0.0": {
+        "runtime": {
+          "imodel.dll": {}
+        }
+      },
+      "model/1.0.0": {
+        "dependencies": {
+          "imodel": "1.0.0"
+        },
+        "runtime": {
+          "model.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "idata/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "imodel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

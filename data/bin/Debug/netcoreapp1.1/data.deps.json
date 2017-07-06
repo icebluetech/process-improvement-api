@@ -11,6 +11,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "1.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.2",
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
+          "idata": "1.0.0",
           "model": "1.0.0"
         },
         "runtime": {
@@ -297,7 +298,23 @@
           "lib/netstandard1.0/System.Text.Encodings.Web.dll": {}
         }
       },
+      "idata/1.0.0": {
+        "dependencies": {
+          "model": "1.0.0"
+        },
+        "runtime": {
+          "idata.dll": {}
+        }
+      },
+      "imodel/1.0.0": {
+        "runtime": {
+          "imodel.dll": {}
+        }
+      },
       "model/1.0.0": {
+        "dependencies": {
+          "imodel": "1.0.0"
+        },
         "runtime": {
           "model.dll": {}
         }
@@ -547,6 +564,16 @@
       "sha512": "sha512-ilLTKoirqw+Mbt+6x1MOxZKEwflasdP5WNuo5m5rKSXtAqazlEDqdyBH1XbvENuDQUtKNeP48CI1dyDNlEAeOA==",
       "path": "system.text.encodings.web/4.3.0",
       "hashPath": "system.text.encodings.web.4.3.0.nupkg.sha512"
+    },
+    "idata/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "imodel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "model/1.0.0": {
       "type": "project",

@@ -37,6 +37,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "1.1.1",
           "Swashbuckle": "6.0.0-beta902",
           "data": "1.0.0",
+          "idata": "1.0.0",
           "model": "1.0.0"
         },
         "runtime": {
@@ -1855,6 +1856,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.2",
           "Microsoft.EntityFrameworkCore.Tools": "1.1.1",
           "Microsoft.NETCore.App": "1.1.2",
+          "idata": "1.0.0",
           "model": "1.0.0"
         },
         "runtime": {
@@ -1864,9 +1866,33 @@
           "data.dll": {}
         }
       },
-      "model/1.0.0": {
+      "idata/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2",
+          "model": "1.0.0"
+        },
+        "runtime": {
+          "idata.dll": {}
+        },
+        "compile": {
+          "idata.dll": {}
+        }
+      },
+      "imodel/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.1.2"
+        },
+        "runtime": {
+          "imodel.dll": {}
+        },
+        "compile": {
+          "imodel.dll": {}
+        }
+      },
+      "model/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2",
+          "imodel": "1.0.0"
         },
         "runtime": {
           "model.dll": {}
@@ -4373,6 +4399,16 @@
       "hashPath": "system.text.encodings.web.4.3.1.nupkg.sha512"
     },
     "data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "idata/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "imodel/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
