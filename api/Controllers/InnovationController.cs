@@ -10,7 +10,7 @@ using model;
 namespace api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Innovation")]
+    [Route("api/[controller]")]
     public class InnovationController : Controller
     {
         private readonly IInnovationRepository _innovationRepository;
@@ -28,7 +28,7 @@ namespace api.Controllers
         }
 
         // GET: api/Innovation/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";

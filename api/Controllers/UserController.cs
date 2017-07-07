@@ -12,7 +12,7 @@ namespace api.Controllers
     
 
     [Produces("application/json")]
-    [Route("api/User")]
+    [Route("api/[controller]")]
     public class UserController : Controller
     {
         private readonly IUserRepository _userRepository;
@@ -29,7 +29,7 @@ namespace api.Controllers
         }
 
         // GET: api/User/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
