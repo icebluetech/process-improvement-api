@@ -13,6 +13,7 @@ namespace data
         public DbSet<User> Users { get; set; }
         public DbSet<Innovation> Innovations { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Doc> Docs { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
