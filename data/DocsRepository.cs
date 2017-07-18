@@ -3,6 +3,7 @@ using model;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace data
 {
@@ -18,9 +19,9 @@ namespace data
             return _dbContext.Docs;
         }
 
-        public void Upload(Doc doc)
+        public async void Upload(Doc doc)
         {
-            //upload to file system
+            
         }
     }
 }

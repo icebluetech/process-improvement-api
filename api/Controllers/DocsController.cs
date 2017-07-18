@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using idata;
 using model;
+using System.IO;
 
 namespace api.Controllers
 {
@@ -37,9 +38,30 @@ namespace api.Controllers
         
         // POST: api/Docs
         [HttpPost]
-        public void Post([FromBody]Doc doc)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Post()
         {
-            _docsRepository.Upload(doc);
+            var files = Request.Form.Files;
+
+            var uploads = Path.Combine("https://processimprovement.file.core.windows.net", "uploads");
+            foreach (var file in files)
+            {
+                if (file.Length > 0)
+                {
+                    using (var fileStream = new FileStream("https://processimprovement.file.core.windows.net/uploads/test.txt", FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+                }
+            }
+
+            //foreach (var file in files)
+            //{
+            //    var doc = new Doc { Name = file.Name };
+            //    _docsRepository.Upload(doc);
+            //}
+
+            return Ok();
         }
         
         // PUT: api/Docs/5
