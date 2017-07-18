@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using idata;
 using model;
 using System.IO;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage.File;
 
 namespace api.Controllers
 {
@@ -43,24 +46,23 @@ namespace api.Controllers
         {
             var files = Request.Form.Files;
 
-            var uploads = Path.Combine("https://processimprovement.file.core.windows.net", "uploads");
+            CloudStorageAccount storageAccount = new CloudStorageAccount(new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials("processimprovement", "kVatBtO1SKg9Sp4y8v1PzpY7J4F9yJSodKNFq+lg8ZDj63w+RTdlTgYYzLS2ot7LRfrtwhRhNGPkOL+n77tbAg=="), true);
+            CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+            CloudFileShare share = fileClient.GetShareReference("uploads");
+
             foreach (var file in files)
             {
                 if (file.Length > 0)
                 {
-                    using (var fileStream = new FileStream("https://processimprovement.file.core.windows.net/uploads/test.txt", FileMode.Create))
+                    CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+                    CloudFile cloudFile = rootDir.GetFileReference(file.FileName);
+
+                    using (var fileStream = file.OpenReadStream())
                     {
-                        await file.CopyToAsync(fileStream);
+                        await cloudFile.UploadFromStreamAsync(fileStream);
                     }
                 }
             }
-
-            //foreach (var file in files)
-            //{
-            //    var doc = new Doc { Name = file.Name };
-            //    _docsRepository.Upload(doc);
-            //}
-
             return Ok();
         }
         

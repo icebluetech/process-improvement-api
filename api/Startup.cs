@@ -53,6 +53,10 @@ namespace process_improvement_api
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            // Shows UseCors with CorsPolicyBuilder.
+            app.UseCors(builder =>
+               builder.AllowAnyOrigin());
+
             app.UseMvc();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
