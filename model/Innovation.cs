@@ -15,5 +15,11 @@ namespace model
         public User User { get; set; }
 
         public ICollection<Task> Tasks { get; set; }
+
+        public int InnovationTypeId { get; set; }
+        public InnovationType InnovationType { get; set; }
+
+        public int InnovationCategoryId { get; set; }
+        public InnovationCategory InnovationCategory { get; set; }
     }
 }
