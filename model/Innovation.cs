@@ -11,8 +11,7 @@ namespace model
         public int Id { get; set; }
         public string Title { get; set; }
 
-        public int UserId { get; set; }
-        public User Owner { get; set; }
+        public virtual ICollection<InnovationUser> InnovationUsers { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -24,13 +23,14 @@ namespace model
         public int InnovationCategoryId { get; set; }
         public InnovationCategory Category { get; set; }
 
-        public ICollection<User> Members { get; set; }
-
         public string Why { get; set; }
-
         public string CurrentState { get; set; }
-
         public string FutureState { get; set; }
+
+        public int RootCauseAnalysisId { get; set; }
+        public RootCauseAnalysis RootCauseAnalysis { get; set; }
+
+
 
     }
 }

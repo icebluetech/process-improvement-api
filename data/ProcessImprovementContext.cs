@@ -13,11 +13,22 @@ namespace data
         public DbSet<User> Users { get; set; }
         public DbSet<Innovation> Innovations { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Celebrate> Celebrates { get; set; }
+        public DbSet<Experiment> Experiments { get; set; }
+        public DbSet<InnovationCategory> InnovationCategories { get; set; }
+        public DbSet<InnovationType> InnovationTypes { get; set; }
+        public DbSet<InnovationUser> InnovationUsers { get; set; }
         public DbSet<Doc> Docs { get; set; }
+        public DbSet<Result> Results { get; set; }
+        public DbSet<RootCauseAnalysis> RootCauseAnalysies { get; set; }
+        public DbSet<StandardWork> StandardWorks { get; set; }
+        public DbSet<Tool> Tools { get; set; }
+        public DbSet<Training> Trainings { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
 
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<InnovationUser>().HasKey(x => new { x.InnovationId, x.UserId });
+        }
     }
 }

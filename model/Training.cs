@@ -1,18 +1,17 @@
-﻿using imodel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
 namespace model
 {
-    public class User : IUser
+    public class Training
     {
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<InnovationUser> InnovationUsers { get; set; }
-
-        public ICollection<Training> Trainings { get; set; }
+        public bool Completed { get; set; }
+        public bool ApprovalNeeded { get; set; }
     }
 }
