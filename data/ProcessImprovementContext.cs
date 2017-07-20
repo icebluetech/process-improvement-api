@@ -12,7 +12,7 @@ namespace data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Innovation> Innovations { get; set; }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Notification> Tasks { get; set; }
         public DbSet<Celebrate> Celebrates { get; set; }
         public DbSet<Experiment> Experiments { get; set; }
         public DbSet<InnovationCategory> InnovationCategories { get; set; }

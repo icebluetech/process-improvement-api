@@ -8,7 +8,7 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    [Migration("20170720172952_initial create")]
+    [Migration("20170720174338_initial create")]
     partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -134,6 +134,22 @@ namespace data.Migrations
                     b.ToTable("InnovationUsers");
                 });
 
+            modelBuilder.Entity("model.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("InnovationId");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InnovationId");
+
+                    b.ToTable("Tasks");
+                });
+
             modelBuilder.Entity("model.Result", b =>
                 {
                     b.Property<int>("Id")
@@ -176,22 +192,6 @@ namespace data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StandardWorks");
-                });
-
-            modelBuilder.Entity("model.Task", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("InnovationId");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InnovationId");
-
-                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("model.Tool", b =>
@@ -277,10 +277,10 @@ namespace data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("model.Task", b =>
+            modelBuilder.Entity("model.Notification", b =>
                 {
                     b.HasOne("model.Innovation", "Innovation")
-                        .WithMany("Tasks")
+                        .WithMany("Notifications")
                         .HasForeignKey("InnovationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

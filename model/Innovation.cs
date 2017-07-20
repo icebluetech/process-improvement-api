@@ -15,7 +15,7 @@ namespace model
 
         public DateTime Date { get; set; }
 
-        public ICollection<Task> Tasks { get; set; }
+        public ICollection<Notification> Notifications { get; set; }
 
         public int InnovationTypeId { get; set; }
         public InnovationType Type { get; set; }

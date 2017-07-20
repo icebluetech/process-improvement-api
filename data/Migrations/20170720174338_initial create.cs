@@ -309,13 +309,13 @@ namespace data.Migrations
                 name: "InnovationUsers");
 
             migrationBuilder.DropTable(
+                name: "Tasks");
+
+            migrationBuilder.DropTable(
                 name: "Results");
 
             migrationBuilder.DropTable(
                 name: "StandardWorks");
-
-            migrationBuilder.DropTable(
-                name: "Tasks");
 
             migrationBuilder.DropTable(
                 name: "Tools");
