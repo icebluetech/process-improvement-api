@@ -14,6 +14,12 @@ namespace model
         public string When { get; set; }
         public string Status { get; set; }
         public DateTime CompletionDate { get; set; }
-        
+
+        public int InnovationId { get; set; }
+        public Innovation Innovation { get; set; }
+
+        public int UserId { get; set; }
+        public User User { get; set; }
+
     }
 }
