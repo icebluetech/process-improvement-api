@@ -14,5 +14,6 @@ namespace model
         public string When { get; set; }
         public string Status { get; set; }
         public DateTime CompletionDate { get; set; }
+        
     }
 }
