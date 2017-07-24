@@ -61,8 +61,7 @@ namespace process_improvement_api
             loggerFactory.AddDebug();
 
             // Shows UseCors with CorsPolicyBuilder.
-            app.UseCors(builder =>
-               builder.AllowAnyOrigin());
+            app.UseCors(builder => { builder.AllowAnyHeader(); builder.AllowAnyOrigin();builder.AllowAnyMethod(); });
 
             app.UseMvc();
 
