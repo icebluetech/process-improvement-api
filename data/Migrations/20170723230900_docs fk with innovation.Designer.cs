@@ -8,9 +8,10 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    partial class ProcessImprovementContextModelSnapshot : ModelSnapshot
+    [Migration("20170723230900_docs fk with innovation")]
+    partial class docsfkwithinnovation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

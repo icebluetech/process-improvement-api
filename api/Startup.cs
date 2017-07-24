@@ -40,9 +40,16 @@ namespace process_improvement_api
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IInnovationRepository, InnovationRepository>();
             services.AddScoped<IDocsRepository, DocsRepository>();
+            services.AddScoped<IInnovationUserRepository, InnovationUserRepository>();
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen();
+
+            services.AddMvc()
+        .AddJsonOptions(
+            options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+        );
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,9 @@
 ﻿using idata;
+using Microsoft.EntityFrameworkCore;
 using model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace data
@@ -15,7 +17,13 @@ namespace data
         }
         public IEnumerable<Innovation> List()
         {
-            return _dbContext.Innovations;
+            return IncludeAll();
+        }
+
+        public Innovation Get(int Id)
+        {
+            var all = IncludeAll();
+            return all.Single(s => s.Id == Id);
         }
 
         public void Insert(Innovation innovation)
@@ -26,6 +34,11 @@ namespace data
                 _dbContext.SaveChanges();
             }
 
+        }
+
+        private IQueryable<Innovation> IncludeAll()
+        {
+            return _dbContext.Innovations.Include(p => p.InnovationUsers).ThenInclude(p => p.User).Include(c => c.Category).Include(s => s.Type);
         }
     }
 }

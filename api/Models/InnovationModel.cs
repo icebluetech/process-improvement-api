@@ -1,12 +1,12 @@
-﻿using imodel;
+﻿using model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace model
+namespace api.Models
 {
-    public class Innovation : IInnovation
+    public class InnovationModel
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -30,9 +30,6 @@ namespace model
         public int? RootCauseAnalysisId { get; set; }
         public virtual RootCauseAnalysis RootCauseAnalysis { get; set; }
 
-        public ICollection<Doc> Docs { get; set; }
-
-
-
+        public User Owner { get; set; }
     }
 }

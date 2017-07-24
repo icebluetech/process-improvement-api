@@ -55,6 +55,7 @@ namespace api.Controllers
                 if (file.Length > 0)
                 {
                     CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+                    //CloudFileDirectory innoDir = rootDir.GetDirectoryReference();
                     CloudFile cloudFile = rootDir.GetFileReference(file.FileName);
 
                     using (var fileStream = file.OpenReadStream())
@@ -62,16 +63,20 @@ namespace api.Controllers
                         await cloudFile.UploadFromStreamAsync(fileStream);
                     }
                 }
+
+                _docsRepository.Save(new Doc { Name = file.FileName, InnovationId = int.Parse(file.Name) });
             }
+
+            
             return Ok();
         }
-        
-        // PUT: api/Docs/5
+
+        //PUT: api/Docs/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
-        
+
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)

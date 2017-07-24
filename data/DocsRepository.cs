@@ -23,5 +23,14 @@ namespace data
         {
             
         }
+
+        public void Save(Doc doc)
+        {
+            using (_dbContext)
+            {
+                _dbContext.Docs.Add(doc);
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }

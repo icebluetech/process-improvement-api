@@ -14,24 +14,28 @@ namespace api.Controllers
     public class InnovationController : Controller
     {
         private readonly IInnovationRepository _innovationRepository;
+        private readonly IInnovationUserRepository _innovationUserRepository;
 
-        public InnovationController(IInnovationRepository innovationRepositry)
+        public InnovationController(IInnovationRepository innovationRepositry, IInnovationUserRepository innovationUserRepository)
         {
             _innovationRepository = innovationRepositry;
+            _innovationUserRepository = innovationUserRepository;
         }
 
         // GET: api/Innovation
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Innovation> Get()
         {
-            return new string[] { "value1", "value2" };
+            var users = _innovationUserRepository.List();
+            var innovations = _innovationRepository.List();
+            return _innovationRepository.List();
         }
 
         // GET: api/Innovation/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Innovation Get(int id)
         {
-            return "value";
+            return _innovationRepository.Get(id);
         }
         
         // POST: api/Innovation

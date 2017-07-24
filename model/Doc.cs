@@ -10,5 +10,8 @@ namespace model
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public int InnovationId { get; set; }
+        public Innovation Innovation { get; set; }
     }
 }

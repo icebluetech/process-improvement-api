@@ -8,9 +8,10 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    partial class ProcessImprovementContextModelSnapshot : ModelSnapshot
+    [Migration("20170721153246_make root cause analysis optional")]
+    partial class makerootcauseanalysisoptional
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -35,13 +36,9 @@ namespace data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("InnovationId");
-
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("InnovationId");
 
                     b.ToTable("Docs");
                 });
@@ -245,14 +242,6 @@ namespace data.Migrations
                 {
                     b.HasOne("model.Innovation", "Innovation")
                         .WithMany()
-                        .HasForeignKey("InnovationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("model.Doc", b =>
-                {
-                    b.HasOne("model.Innovation", "Innovation")
-                        .WithMany("Docs")
                         .HasForeignKey("InnovationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
