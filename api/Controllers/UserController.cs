@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using idata;
 using model;
+using api.Models;
 
 namespace api.Controllers
 {
@@ -34,7 +35,14 @@ namespace api.Controllers
         {
             return "value";
         }
-        
+
+        // GET: api/User/5
+        [HttpGet("search")]
+        public IEnumerable<User> Get(string term)
+        {
+            return _userRepository.Search(term);
+        }
+
         // POST: api/User
         [HttpPost]
         public void Post([FromBody]User user)

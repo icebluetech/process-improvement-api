@@ -2,6 +2,7 @@
 using model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace data
@@ -16,6 +17,11 @@ namespace data
         public IEnumerable<User> List()
         {
             return _dbContext.Users;
+        }
+
+        public IEnumerable<User> Search(string term)
+        {
+            return List().Where(u => u.Name.Contains(term));
         }
 
         public void Insert(User user)
