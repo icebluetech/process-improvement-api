@@ -11,6 +11,8 @@ namespace model
         public int Id { get; set; }
         public string Name { get; set; }
 
+        public string avatar { get; set; }
+
         public virtual ICollection<InnovationUser> InnovationUsers { get; set; }
 
         public ICollection<Training> Trainings { get; set; }

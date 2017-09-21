@@ -10,7 +10,7 @@ using api.Models;
 
 namespace api.Controllers
 {
-    
+
 
     [Produces("application/json")]
     [Route("api/[controller]")]
@@ -49,13 +49,13 @@ namespace api.Controllers
         {
             _userRepository.Insert(user);
         }
-        
+
         // PUT: api/User/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
-        
+
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)

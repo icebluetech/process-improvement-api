@@ -21,7 +21,15 @@ namespace data
 
         public IEnumerable<User> Search(string term)
         {
-            return List().Where(u => u.Name.Contains(term));
+            if (term != null)
+            {
+#if DEBUG
+                return Mocks.UserList().Where(u => u.Name.ToLower().Contains(term.ToLower()));
+#else
+    return List().Where(u => u.Name.ToLower().Contains(term.ToLower()));
+#endif
+            }
+            return new List<User>();
         }
 
         public void Insert(User user)
