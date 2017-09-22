@@ -8,8 +8,8 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    [Migration("20170724204643_Add Experiments db objects")]
-    partial class AddExperimentsdbobjects
+    [Migration("20170922191003_innitial_create")]
+    partial class innitial_create
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,6 +55,18 @@ namespace data.Migrations
                     b.HasIndex("InnovationId");
 
                     b.ToTable("Celebrates");
+                });
+
+            modelBuilder.Entity("model.Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("model.Doc", b =>
@@ -110,11 +122,15 @@ namespace data.Migrations
 
                     b.Property<DateTime>("Date");
 
+                    b.Property<int?>("DepartmentId");
+
                     b.Property<string>("FutureState");
 
                     b.Property<int>("InnovationCategoryId");
 
                     b.Property<int>("InnovationTypeId");
+
+                    b.Property<int?>("ProcessId");
 
                     b.Property<int?>("RootCauseAnalysisId");
 
@@ -122,13 +138,21 @@ namespace data.Migrations
 
                     b.Property<string>("Why");
 
+                    b.Property<int?>("WidgetId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
 
                     b.HasIndex("InnovationCategoryId");
 
                     b.HasIndex("InnovationTypeId");
 
+                    b.HasIndex("ProcessId");
+
                     b.HasIndex("RootCauseAnalysisId");
+
+                    b.HasIndex("WidgetId");
 
                     b.ToTable("Innovations");
                 });
@@ -186,6 +210,18 @@ namespace data.Migrations
                     b.HasIndex("InnovationId");
 
                     b.ToTable("Tasks");
+                });
+
+            modelBuilder.Entity("model.Process", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Processes");
                 });
 
             modelBuilder.Entity("model.Result", b =>
@@ -277,9 +313,23 @@ namespace data.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("avatar");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("model.Widget", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Widgets");
                 });
 
             modelBuilder.Entity("model.Brainstorm", b =>
@@ -326,6 +376,10 @@ namespace data.Migrations
 
             modelBuilder.Entity("model.Innovation", b =>
                 {
+                    b.HasOne("model.Department", "PrimaryDepartment")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId");
+
                     b.HasOne("model.InnovationCategory", "Category")
                         .WithMany()
                         .HasForeignKey("InnovationCategoryId")
@@ -336,9 +390,17 @@ namespace data.Migrations
                         .HasForeignKey("InnovationTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("model.Process", "Process")
+                        .WithMany()
+                        .HasForeignKey("ProcessId");
+
                     b.HasOne("model.RootCauseAnalysis", "RootCauseAnalysis")
                         .WithMany()
                         .HasForeignKey("RootCauseAnalysisId");
+
+                    b.HasOne("model.Widget", "Widget")
+                        .WithMany()
+                        .HasForeignKey("WidgetId");
                 });
 
             modelBuilder.Entity("model.InnovationUser", b =>

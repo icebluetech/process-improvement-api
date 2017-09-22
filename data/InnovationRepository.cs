@@ -38,7 +38,7 @@ namespace data
 
         private IQueryable<Innovation> IncludeAll()
         {
-            return _dbContext.Innovations.Include(p => p.InnovationUsers).ThenInclude(p => p.User).Include(c => c.Category).Include(s => s.Type);
+            return _dbContext.Innovations.Include(p => p.InnovationUsers).ThenInclude(p => p.User).Include(c => c.Category).Include(s => s.Type).Include(s=>s.InnovationUsers);
         }
     }
 }

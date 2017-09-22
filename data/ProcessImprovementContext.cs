@@ -25,6 +25,9 @@ namespace data
         public DbSet<Tool> Tools { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<Brainstorm> Brainstorms { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Process> Processes { get; set; }
+        public DbSet<Widget> Widgets { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

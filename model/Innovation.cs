@@ -11,12 +11,14 @@ namespace model
         public int Id { get; set; }
         public string Title { get; set; }
 
-        public string Sponsor { get; set; }
-        public string Customer { get; set; }
-        public string Process { get; set; }
-        public string Widget { get; set; }
-        public string PrimaryDepartment { get; set; }
-        
+        public int? ProcessId { get; set; }
+        public Process Process { get; set; }
+
+        public int? WidgetId { get; set; }
+        public Widget Widget { get; set; }
+
+        public int? DepartmentId { get; set; }
+        public Department PrimaryDepartment { get; set; }
 
         public virtual ICollection<InnovationUser> InnovationUsers { get; set; }
 

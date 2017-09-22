@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace data.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class innitial_create : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Docs",
+                name: "Departments",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -19,24 +19,7 @@ namespace data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Docs", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Experiments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CompletionDate = table.Column<DateTime>(nullable: false),
-                    Status = table.Column<string>(nullable: true),
-                    What = table.Column<string>(nullable: true),
-                    When = table.Column<string>(nullable: true),
-                    Who = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Experiments", x => x.Id);
+                    table.PrimaryKey("PK_Departments", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,6 +49,19 @@ namespace data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Processes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Processes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Results",
                 columns: table => new
                 {
@@ -79,19 +75,6 @@ namespace data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Results", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RootCauseAnalysies",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Tool = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RootCauseAnalysies", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -127,7 +110,8 @@ namespace data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    avatar = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -135,39 +119,35 @@ namespace data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Innovations",
+                name: "Widgets",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CurrentState = table.Column<string>(nullable: true),
-                    Date = table.Column<DateTime>(nullable: false),
-                    FutureState = table.Column<string>(nullable: true),
-                    InnovationCategoryId = table.Column<int>(nullable: false),
-                    InnovationTypeId = table.Column<int>(nullable: false),
-                    RootCauseAnalysisId = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(nullable: true),
-                    Why = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Innovations", x => x.Id);
+                    table.PrimaryKey("PK_Widgets", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RootCauseAnalysies",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Description = table.Column<string>(nullable: true),
+                    Tool = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RootCauseAnalysies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Innovations_InnovationCategories_InnovationCategoryId",
-                        column: x => x.InnovationCategoryId,
-                        principalTable: "InnovationCategories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Innovations_InnovationTypes_InnovationTypeId",
-                        column: x => x.InnovationTypeId,
-                        principalTable: "InnovationTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Innovations_RootCauseAnalysies_RootCauseAnalysisId",
-                        column: x => x.RootCauseAnalysisId,
-                        principalTable: "RootCauseAnalysies",
+                        name: "FK_RootCauseAnalysies_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -195,6 +175,95 @@ namespace data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Innovations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CurrentState = table.Column<string>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false),
+                    DepartmentId = table.Column<int>(nullable: true),
+                    FutureState = table.Column<string>(nullable: true),
+                    InnovationCategoryId = table.Column<int>(nullable: false),
+                    InnovationTypeId = table.Column<int>(nullable: false),
+                    ProcessId = table.Column<int>(nullable: true),
+                    RootCauseAnalysisId = table.Column<int>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    Why = table.Column<string>(nullable: true),
+                    WidgetId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Innovations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Innovations_Departments_DepartmentId",
+                        column: x => x.DepartmentId,
+                        principalTable: "Departments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Innovations_InnovationCategories_InnovationCategoryId",
+                        column: x => x.InnovationCategoryId,
+                        principalTable: "InnovationCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Innovations_InnovationTypes_InnovationTypeId",
+                        column: x => x.InnovationTypeId,
+                        principalTable: "InnovationTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Innovations_Processes_ProcessId",
+                        column: x => x.ProcessId,
+                        principalTable: "Processes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Innovations_RootCauseAnalysies_RootCauseAnalysisId",
+                        column: x => x.RootCauseAnalysisId,
+                        principalTable: "RootCauseAnalysies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Innovations_Widgets_WidgetId",
+                        column: x => x.WidgetId,
+                        principalTable: "Widgets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Brainstorms",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Description = table.Column<string>(nullable: true),
+                    Impact = table.Column<string>(nullable: true),
+                    InnovationId = table.Column<int>(nullable: false),
+                    LevelOfEffort = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Brainstorms", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Brainstorms_Innovations_InnovationId",
+                        column: x => x.InnovationId,
+                        principalTable: "Innovations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Brainstorms_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Celebrates",
                 columns: table => new
                 {
@@ -209,6 +278,57 @@ namespace data.Migrations
                         name: "FK_Celebrates_Innovations_InnovationId",
                         column: x => x.InnovationId,
                         principalTable: "Innovations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Docs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    InnovationId = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Docs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Docs_Innovations_InnovationId",
+                        column: x => x.InnovationId,
+                        principalTable: "Innovations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Experiments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CompletionDate = table.Column<DateTime>(nullable: false),
+                    InnovationId = table.Column<int>(nullable: false),
+                    Status = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false),
+                    What = table.Column<string>(nullable: true),
+                    When = table.Column<string>(nullable: true),
+                    Who = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Experiments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Experiments_Innovations_InnovationId",
+                        column: x => x.InnovationId,
+                        principalTable: "Innovations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Experiments_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -259,9 +379,39 @@ namespace data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Brainstorms_InnovationId",
+                table: "Brainstorms",
+                column: "InnovationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Brainstorms_UserId",
+                table: "Brainstorms",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Celebrates_InnovationId",
                 table: "Celebrates",
                 column: "InnovationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Docs_InnovationId",
+                table: "Docs",
+                column: "InnovationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Experiments_InnovationId",
+                table: "Experiments",
+                column: "InnovationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Experiments_UserId",
+                table: "Experiments",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Innovations_DepartmentId",
+                table: "Innovations",
+                column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Innovations_InnovationCategoryId",
@@ -274,9 +424,19 @@ namespace data.Migrations
                 column: "InnovationTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Innovations_ProcessId",
+                table: "Innovations",
+                column: "ProcessId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Innovations_RootCauseAnalysisId",
                 table: "Innovations",
                 column: "RootCauseAnalysisId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Innovations_WidgetId",
+                table: "Innovations",
+                column: "WidgetId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_InnovationUsers_UserId",
@@ -289,6 +449,11 @@ namespace data.Migrations
                 column: "InnovationId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RootCauseAnalysies_UserId",
+                table: "RootCauseAnalysies",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Trainings_UserId",
                 table: "Trainings",
                 column: "UserId");
@@ -296,6 +461,9 @@ namespace data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Brainstorms");
+
             migrationBuilder.DropTable(
                 name: "Celebrates");
 
@@ -327,7 +495,7 @@ namespace data.Migrations
                 name: "Innovations");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Departments");
 
             migrationBuilder.DropTable(
                 name: "InnovationCategories");
@@ -336,7 +504,16 @@ namespace data.Migrations
                 name: "InnovationTypes");
 
             migrationBuilder.DropTable(
+                name: "Processes");
+
+            migrationBuilder.DropTable(
                 name: "RootCauseAnalysies");
+
+            migrationBuilder.DropTable(
+                name: "Widgets");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }
