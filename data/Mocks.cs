@@ -12,7 +12,7 @@ namespace data
         {
             return new List<User>()
             {
-                new User { Id = 1, Name = "Chris Chehsire", avatar="face-8" },
+                new User { Id = 1, Name = "Chris Cheshire", avatar="face-8" },
                 new User { Id = 2, Name = "Terri Cheshire", avatar="female-1" },
                 new User { Id = 3, Name = "Scotty Martin", avatar="male-1" }
             };

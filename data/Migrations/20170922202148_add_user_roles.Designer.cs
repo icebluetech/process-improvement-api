@@ -8,9 +8,10 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    partial class ProcessImprovementContextModelSnapshot : ModelSnapshot
+    [Migration("20170922202148_add_user_roles")]
+    partial class add_user_roles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -312,7 +313,7 @@ namespace data.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("UserRoleId");
+                    b.Property<int?>("UserRoleId");
 
                     b.Property<string>("avatar");
 
@@ -458,8 +459,7 @@ namespace data.Migrations
                 {
                     b.HasOne("model.UserRole", "UserRole")
                         .WithMany()
-                        .HasForeignKey("UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserRoleId");
                 });
         }
     }

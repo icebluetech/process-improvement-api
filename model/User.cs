@@ -16,5 +16,8 @@ namespace model
         public virtual ICollection<InnovationUser> InnovationUsers { get; set; }
 
         public ICollection<Training> Trainings { get; set; }
+
+        public int UserRoleId { get; set; }
+        public UserRole UserRole { get; set; }
     }
 }
