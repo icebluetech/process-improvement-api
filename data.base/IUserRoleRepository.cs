@@ -1,0 +1,12 @@
+﻿using model;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace idata
+{
+    public interface IUserRoleRepository
+    {
+        IEnumerable<UserRole> List();
+    }
+}

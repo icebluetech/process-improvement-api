@@ -42,6 +42,7 @@ namespace process_improvement_api
             services.AddScoped<IDocsRepository, DocsRepository>();
             services.AddScoped<IInnovationUserRepository, InnovationUserRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen();
