@@ -36,13 +36,18 @@ namespace api.Controllers
             return "value";
         }
 
-
+        // GET: api/User/5
+        [HttpGet("search")]
+        public IEnumerable<UserRole> Get(string term)
+        {
+            return _userRoleRepository.Search(term);
+        }
 
         // POST: api/User
         [HttpPost]
-        public void Post([FromBody]User user)
+        public void Post([FromBody]UserRole userRole)
         {
-            //_userRoleRepository.Insert(user);
+            _userRoleRepository.Insert(userRole);
         }
 
         // PUT: api/User/5

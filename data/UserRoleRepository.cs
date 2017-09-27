@@ -18,5 +18,25 @@ namespace data
         {
             return _dbContext.UserRoles;
         }
+
+        public IEnumerable<UserRole> Search(string term)
+        {
+            if (term != null)
+            {
+                return List().Where(u => u.Name.ToLower().Contains(term.ToLower()));
+            }
+
+            return List();
+        }
+
+        public void Insert(UserRole userRole)
+        {
+            using (_dbContext)
+            {
+                _dbContext.UserRoles.Add(userRole);
+                _dbContext.SaveChanges();
+            }
+
+        }
     }
 }
