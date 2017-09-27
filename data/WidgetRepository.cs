@@ -23,8 +23,7 @@ namespace data
         {
             if (term != null)
             {
-                //return Mocks.UserList().Where(u => u.Name.ToLower().Contains(term.ToLower()));
-    return List().Where(u => u.Name.ToLower().Contains(term.ToLower()));
+                return List().Where(u => u.Name.ToLower().Contains(term.ToLower()));
             }
 
             return List();

@@ -2,6 +2,7 @@
 using model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +27,16 @@ namespace data
                 _dbContext.Departments.Add(department);
                 _dbContext.SaveChanges();
             }
+        }
+
+        public IEnumerable<Department> Search(string term)
+        {
+            if (term != null)
+            {
+                return List().Where(u => u.Name.ToLower().Contains(term.ToLower()));
+            }
+
+            return List();
         }
 
         public void Insert(Department department)

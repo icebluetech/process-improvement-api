@@ -11,5 +11,6 @@ namespace idata
         IEnumerable<Department> List();
         void Save(Department doc);
         void Insert(Department department);
+        IEnumerable<Department> Search(string term);
     }
 }

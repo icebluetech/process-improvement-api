@@ -39,6 +39,13 @@ namespace api.Controllers
             return "value";
         }
 
+        // GET: api/User/5
+        [HttpGet("search")]
+        public IEnumerable<Department> Get(string term)
+        {
+            return _departmentRepository.Search(term);
+        }
+
         // POST: api/User
         [HttpPost]
         public void Post([FromBody]Department department)
