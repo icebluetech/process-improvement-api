@@ -27,5 +27,15 @@ namespace data
                 _dbContext.SaveChanges();
             }
         }
+
+        public void Insert(Department department)
+        {
+            using (_dbContext)
+            {
+                _dbContext.Departments.Add(department);
+                _dbContext.SaveChanges();
+            }
+
+        }
     }
 }

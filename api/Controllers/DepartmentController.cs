@@ -38,7 +38,14 @@ namespace api.Controllers
         {
             return "value";
         }
-        
+
+        // POST: api/User
+        [HttpPost]
+        public void Post([FromBody]Department department)
+        {
+            _departmentRepository.Insert(department);
+        }
+
         //PUT: api/Docs/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)

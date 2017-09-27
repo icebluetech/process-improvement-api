@@ -10,5 +10,6 @@ namespace idata
     {
         IEnumerable<Department> List();
         void Save(Department doc);
+        void Insert(Department department);
     }
 }
