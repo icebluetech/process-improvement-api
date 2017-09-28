@@ -12,6 +12,7 @@ namespace model
         public int InnovationId { get; set; }
         public virtual Innovation Innovation { get; set; }
 
-        public string Type { get; set; }
+        public int? InnovationTypeId { get; set; }
+        public InnovationType InnovationType { get; set; }
     }
 }
