@@ -12,7 +12,7 @@ namespace model
         public int InnovationId { get; set; }
         public virtual Innovation Innovation { get; set; }
 
-        public int? InnovationTypeId { get; set; }
-        public InnovationType InnovationType { get; set; }
+        public int UserRoleId { get; set; }
+        public UserRole UserRole { get; set; }
     }
 }

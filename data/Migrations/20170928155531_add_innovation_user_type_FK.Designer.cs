@@ -8,9 +8,10 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    partial class ProcessImprovementContextModelSnapshot : ModelSnapshot
+    [Migration("20170928155531_add_innovation_user_type_FK")]
+    partial class add_innovation_user_type_FK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -186,13 +187,13 @@ namespace data.Migrations
 
                     b.Property<int>("UserId");
 
-                    b.Property<int>("UserRoleId");
+                    b.Property<int?>("InnovationTypeId");
 
                     b.HasKey("InnovationId", "UserId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("InnovationTypeId");
 
-                    b.HasIndex("UserRoleId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("InnovationUsers");
                 });
@@ -427,14 +428,13 @@ namespace data.Migrations
                         .HasForeignKey("InnovationId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("model.InnovationType", "InnovationType")
+                        .WithMany()
+                        .HasForeignKey("InnovationTypeId");
+
                     b.HasOne("model.User", "User")
                         .WithMany("InnovationUsers")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("model.UserRole", "UserRole")
-                        .WithMany()
-                        .HasForeignKey("UserRoleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

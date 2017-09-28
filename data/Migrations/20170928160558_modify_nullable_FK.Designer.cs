@@ -8,9 +8,10 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    partial class ProcessImprovementContextModelSnapshot : ModelSnapshot
+    [Migration("20170928160558_modify_nullable_FK")]
+    partial class modify_nullable_FK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -186,7 +187,7 @@ namespace data.Migrations
 
                     b.Property<int>("UserId");
 
-                    b.Property<int>("UserRoleId");
+                    b.Property<int?>("UserRoleId");
 
                     b.HasKey("InnovationId", "UserId");
 
@@ -434,8 +435,7 @@ namespace data.Migrations
 
                     b.HasOne("model.UserRole", "UserRole")
                         .WithMany()
-                        .HasForeignKey("UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("UserRoleId");
                 });
 
             modelBuilder.Entity("model.Notification", b =>
