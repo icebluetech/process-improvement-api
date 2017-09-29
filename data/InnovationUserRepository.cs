@@ -28,5 +28,20 @@ namespace data
             }
 
         }
+
+        public void Insert(IEnumerable<InnovationUser> innovationUsers)
+        {
+            using (_dbContext)
+            {
+                foreach (var innovationUser in innovationUsers)
+                {
+
+                    _dbContext.InnovationUsers.Add(innovationUser);
+
+                }
+            }
+
+            _dbContext.SaveChanges();
+        }
     }
 }

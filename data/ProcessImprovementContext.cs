@@ -33,7 +33,9 @@ namespace data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<InnovationUser>().HasKey(x => new { x.InnovationId, x.UserId });
+            //modelBuilder.Entity<InnovationUser>().HasKey(x => new { x.InnovationId, x.UserId });
+
+
         }
     }
 }

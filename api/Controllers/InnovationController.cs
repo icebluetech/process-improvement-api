@@ -43,6 +43,8 @@ namespace api.Controllers
         public void Post([FromBody]Innovation innovation)
         {
             _innovationRepository.Insert(innovation);
+
+            //_innovationUserRepository.Insert(innovation.InnovationUsers);
         }
         
         // PUT: api/Innovation/5

@@ -8,5 +8,6 @@ namespace idata
     {
         IEnumerable<InnovationUser> List();
         void Insert(InnovationUser innovationUser);
+        void Insert(IEnumerable<InnovationUser> innovationUsers);
     }
 }
