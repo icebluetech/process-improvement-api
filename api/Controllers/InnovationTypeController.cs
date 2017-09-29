@@ -11,20 +11,20 @@ namespace api.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class InnovationCategoryController : Controller
+    public class InnovationTypeController : Controller
     {
-        private readonly IInnovationCategoryRepository _innovationCategoryRepository;
+        private readonly IInnovationTypeRepository _innovationTypeRepository;
 
-        public InnovationCategoryController(IInnovationCategoryRepository innovationCategoryRepository)
+        public InnovationTypeController(IInnovationTypeRepository innovationTypeRepository)
         {
-            _innovationCategoryRepository = innovationCategoryRepository;
+            _innovationTypeRepository = innovationTypeRepository;
         }
 
         // GET: api/Innovation
         [HttpGet]
-        public IEnumerable<InnovationCategory> Get()
+        public IEnumerable<InnovationType> Get()
         {
-            return _innovationCategoryRepository.List();
+            return _innovationTypeRepository.List();
         }
 
         // GET: api/Innovation/5
@@ -36,16 +36,16 @@ namespace api.Controllers
 
         // GET: api/User/5
         [HttpGet("search")]
-        public IEnumerable<InnovationCategory> Get(string term)
+        public IEnumerable<InnovationType> Get(string term)
         {
-            return _innovationCategoryRepository.Search(term);
+            return _innovationTypeRepository.Search(term);
         }
 
         // POST: api/Innovation
         [HttpPost]
-        public void Post([FromBody]InnovationCategory innovationCategory)
+        public void Post([FromBody]InnovationType innovationType)
         {
-            _innovationCategoryRepository.Insert(innovationCategory);
+            _innovationTypeRepository.Insert(innovationType);
         }
         
         // PUT: api/Innovation/5
