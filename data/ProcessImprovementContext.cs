@@ -36,7 +36,11 @@ namespace data
         public DbSet<WasteType> WasteTypes { get; set; }
         public DbSet<BrainstormFile> BrainstormFiles { get; set; }
         public DbSet<BrainstormFileType> BrainstormFileTypes { get; set; }
-
+        public DbSet<Solution> Solutions { get; set; }
+        public DbSet<SolutionFile> SolutionFiles { get; set; }
+        public DbSet<SolutionFileType> SolutionFileTypes { get; set; }
+        public DbSet<ActionPlan> ActionPlans { get; set; }
+        public DbSet<Status> Status { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

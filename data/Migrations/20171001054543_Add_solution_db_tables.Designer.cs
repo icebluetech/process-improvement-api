@@ -8,41 +8,14 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    partial class ProcessImprovementContextModelSnapshot : ModelSnapshot
+    [Migration("20171001054543_Add_solution_db_tables")]
+    partial class Add_solution_db_tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("model.ActionPlan", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Completed");
-
-                    b.Property<DateTime>("Due");
-
-                    b.Property<int>("InnovationId");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("StatusId");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InnovationId");
-
-                    b.HasIndex("StatusId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ActionPlans");
-                });
 
             modelBuilder.Entity("model.Brainstorm", b =>
                 {
@@ -472,18 +445,6 @@ namespace data.Migrations
                     b.ToTable("StateTypes");
                 });
 
-            modelBuilder.Entity("model.Status", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Status");
-                });
-
             modelBuilder.Entity("model.Tool", b =>
                 {
                     b.Property<int>("Id")
@@ -568,24 +529,6 @@ namespace data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Widgets");
-                });
-
-            modelBuilder.Entity("model.ActionPlan", b =>
-                {
-                    b.HasOne("model.Innovation", "Innovation")
-                        .WithMany()
-                        .HasForeignKey("InnovationId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("model.Status", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("model.User", "AssignedTo")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("model.Brainstorm", b =>
