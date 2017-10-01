@@ -17,5 +17,8 @@ namespace model
         public int NonValueHold { get; set; }
         public int NVA { get; set; }
 
+        public int InnovationId { get; set; }
+        public Innovation Innovation { get; set; }
+
     }
 }

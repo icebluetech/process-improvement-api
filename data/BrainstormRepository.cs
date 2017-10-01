@@ -38,7 +38,7 @@ namespace data
 
         private IQueryable<Brainstorm> IncludeAll()
         {
-            return _dbContext.Brainstorms.Include(p => p.Innovation).Include(s => s.User);
+            return _dbContext.Brainstorms.Include(p => p.Innovation);
         }
     }
 }

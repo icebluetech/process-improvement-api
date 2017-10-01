@@ -13,5 +13,7 @@ namespace model
 
         public int InnovationId { get; set; }
         public Innovation Innovation { get; set; }
+
+        public string Url { get; set; }
     }
 }

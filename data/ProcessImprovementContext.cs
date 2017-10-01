@@ -34,6 +34,8 @@ namespace data
         public DbSet<State> States { get; set; }
         public DbSet<GapAnalysis> GapAnalysis { get; set; }
         public DbSet<WasteType> WasteTypes { get; set; }
+        public DbSet<BrainstormFile> BrainstormFiles { get; set; }
+        public DbSet<BrainstormFileType> BrainstormFileTypes { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

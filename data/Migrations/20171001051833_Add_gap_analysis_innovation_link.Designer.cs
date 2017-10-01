@@ -8,9 +8,10 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    partial class ProcessImprovementContextModelSnapshot : ModelSnapshot
+    [Migration("20171001051833_Add_gap_analysis_innovation_link")]
+    partial class Add_gap_analysis_innovation_link
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -21,49 +22,25 @@ namespace data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Impact");
+
                     b.Property<int>("InnovationId");
+
+                    b.Property<string>("LevelOfEffort");
+
+                    b.Property<string>("Title");
+
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("InnovationId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Brainstorms");
-                });
-
-            modelBuilder.Entity("model.BrainstormFile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("BrainstormFileTypeId");
-
-                    b.Property<int?>("BrainstormId");
-
-                    b.Property<int>("DocId");
-
-                    b.Property<string>("Expectation");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BrainstormFileTypeId");
-
-                    b.HasIndex("BrainstormId");
-
-                    b.HasIndex("DocId");
-
-                    b.ToTable("BrainstormFiles");
-                });
-
-            modelBuilder.Entity("model.BrainstormFileType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BrainstormFileTypes");
                 });
 
             modelBuilder.Entity("model.Celebrate", b =>
@@ -100,8 +77,6 @@ namespace data.Migrations
                     b.Property<int>("InnovationId");
 
                     b.Property<string>("Name");
-
-                    b.Property<string>("Url");
 
                     b.HasKey("Id");
 
@@ -486,22 +461,10 @@ namespace data.Migrations
                         .WithMany()
                         .HasForeignKey("InnovationId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
 
-            modelBuilder.Entity("model.BrainstormFile", b =>
-                {
-                    b.HasOne("model.BrainstormFileType", "BrainstormFileType")
+                    b.HasOne("model.User", "User")
                         .WithMany()
-                        .HasForeignKey("BrainstormFileTypeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("model.Brainstorm")
-                        .WithMany("BrainstormFiles")
-                        .HasForeignKey("BrainstormId");
-
-                    b.HasOne("model.Doc", "Doc")
-                        .WithMany()
-                        .HasForeignKey("DocId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
