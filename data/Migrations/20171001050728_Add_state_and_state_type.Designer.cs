@@ -8,9 +8,10 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    partial class ProcessImprovementContextModelSnapshot : ModelSnapshot
+    [Migration("20171001050728_Add_state_and_state_type")]
+    partial class Add_state_and_state_type
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -110,28 +111,6 @@ namespace data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Experiments");
-                });
-
-            modelBuilder.Entity("model.GapAnalysis", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("NVA");
-
-                    b.Property<int>("NonValueHold");
-
-                    b.Property<string>("Url");
-
-                    b.Property<int>("ValueHold");
-
-                    b.Property<int>("WasteTypeId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("WasteTypeId");
-
-                    b.ToTable("GapAnalysis");
                 });
 
             modelBuilder.Entity("model.Innovation", b =>
@@ -265,7 +244,7 @@ namespace data.Migrations
 
                     b.HasIndex("InnovationId");
 
-                    b.ToTable("ReasonForActions");
+                    b.ToTable("ReasonForAction");
                 });
 
             modelBuilder.Entity("model.Result", b =>
@@ -349,7 +328,7 @@ namespace data.Migrations
 
                     b.HasIndex("WidgetId");
 
-                    b.ToTable("States");
+                    b.ToTable("State");
                 });
 
             modelBuilder.Entity("model.StateType", b =>
@@ -361,7 +340,7 @@ namespace data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StateTypes");
+                    b.ToTable("StateType");
                 });
 
             modelBuilder.Entity("model.Tool", b =>
@@ -426,18 +405,6 @@ namespace data.Migrations
                     b.ToTable("UserRoles");
                 });
 
-            modelBuilder.Entity("model.WasteType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("WasteTypes");
-                });
-
             modelBuilder.Entity("model.Widget", b =>
                 {
                     b.Property<int>("Id")
@@ -489,14 +456,6 @@ namespace data.Migrations
                     b.HasOne("model.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("model.GapAnalysis", b =>
-                {
-                    b.HasOne("model.WasteType", "WasteType")
-                        .WithMany()
-                        .HasForeignKey("WasteTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

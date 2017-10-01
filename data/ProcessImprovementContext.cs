@@ -29,7 +29,11 @@ namespace data
         public DbSet<Process> Processes { get; set; }
         public DbSet<Widget> Widgets { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
-        public DbSet<ReasonForAction> ReasonForAction { get; set; }
+        public DbSet<ReasonForAction> ReasonForActions { get; set; }
+        public DbSet<StateType> StateTypes { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<GapAnalysis> GapAnalysis { get; set; }
+        public DbSet<WasteType> WasteTypes { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
