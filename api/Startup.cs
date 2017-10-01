@@ -47,6 +47,7 @@ namespace process_improvement_api
             services.AddScoped<IWidgetRepository, WidgetRepository>();
             services.AddScoped<IInnovationTypeRepository, InnovationTypeRepository>();
             services.AddScoped<IInnovationCategoryRepository, InnovationCategoryRepository>();
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen();
