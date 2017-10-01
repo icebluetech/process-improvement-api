@@ -43,6 +43,7 @@ namespace data
         public DbSet<Status> Status { get; set; }
         public DbSet<ResultEntry> ResultEntries { get; set; }
         public DbSet<ResultEntryType> ResultEntryTypes { get; set; }
+        public DbSet<LessonLearned> LessonsLearned { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

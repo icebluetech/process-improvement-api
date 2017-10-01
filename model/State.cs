@@ -23,5 +23,8 @@ namespace model
         public int Handoffs { get; set; }
         public int Approvals { get; set; }
 
+        public int InnovationId { get; set; }
+        public Innovation Innovation { get; set; }
+
     }
 }
