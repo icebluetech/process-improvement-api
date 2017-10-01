@@ -10,26 +10,27 @@ namespace api.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-
-        public virtual ICollection<InnovationUser> InnovationUsers { get; set; }
-
+        public string Type { get; set; }
+        public string Widget { get; set; }
+        public string Owner { get; set; }
         public DateTime Date { get; set; }
 
-        public ICollection<Notification> Notifications { get; set; }
-
-        public int InnovationTypeId { get; set; }
-        public InnovationType Type { get; set; }
-
-        public int InnovationCategoryId { get; set; }
-        public InnovationCategory Category { get; set; }
-
-        public string Why { get; set; }
-        public string CurrentState { get; set; }
-        public string FutureState { get; set; }
-
-        public int? RootCauseAnalysisId { get; set; }
-        public virtual RootCauseAnalysis RootCauseAnalysis { get; set; }
-
-        public User Owner { get; set; }
+        public static IEnumerable<InnovationModel> Create(IEnumerable<Innovation> innovations)
+        {
+            var temp = new List<InnovationModel>();
+            foreach (var innovation in innovations)
+            {
+                temp.Add(new InnovationModel
+                {
+                    Id = innovation.Id,
+                    Title = innovation.Title,
+                    Type = innovation.InnovationType.Name,
+                    Widget = innovation.Widget.Name,
+                    Owner = innovation.InnovationUsers.Where(u => u.UserRoleId == 4).Single().User.Name,
+                    Date = innovation.Date
+                });
+            }
+            return temp;
+        }
     }
 }

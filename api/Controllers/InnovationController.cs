@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using idata;
 using model;
+using api.Models;
 
 namespace api.Controllers
 {
@@ -24,11 +25,11 @@ namespace api.Controllers
 
         // GET: api/Innovation
         [HttpGet]
-        public IEnumerable<Innovation> Get()
+        public IEnumerable<InnovationModel> Get()
         {
-            var users = _innovationUserRepository.List();
             var innovations = _innovationRepository.List();
-            return _innovationRepository.List();
+
+            return InnovationModel.Create(innovations);
         }
 
         // GET: api/Innovation/5

@@ -35,7 +35,6 @@ namespace data
         {
             //modelBuilder.Entity<InnovationUser>().HasKey(x => new { x.InnovationId, x.UserId });
 
-
         }
     }
 }

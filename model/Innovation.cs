@@ -27,7 +27,7 @@ namespace model
         public ICollection<Notification> Notifications { get; set; }
 
         public int InnovationTypeId { get; set; }
-        public InnovationType Type { get; set; }
+        public virtual InnovationType InnovationType { get; set; }
 
         public int InnovationCategoryId { get; set; }
         public InnovationCategory Category { get; set; }
