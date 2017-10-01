@@ -41,6 +41,8 @@ namespace data
         public DbSet<SolutionFileType> SolutionFileTypes { get; set; }
         public DbSet<ActionPlan> ActionPlans { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<ResultEntry> ResultEntries { get; set; }
+        public DbSet<ResultEntryType> ResultEntryTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
