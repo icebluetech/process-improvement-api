@@ -8,8 +8,8 @@ using data;
 namespace data.Migrations
 {
     [DbContext(typeof(ProcessImprovementContext))]
-    [Migration("20170929192950_add_PK_to_InnovationUser")]
-    partial class add_PK_to_InnovationUser
+    [Migration("20171001044508_Add_reason_for_action_table_modify_inno_user")]
+    partial class Add_reason_for_action_table_modify_inno_user
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -183,15 +183,18 @@ namespace data.Migrations
 
             modelBuilder.Entity("model.InnovationUser", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
                     b.Property<int>("InnovationId");
 
                     b.Property<int>("UserId");
 
-                    b.Property<int>("Id");
-
                     b.Property<int>("UserRoleId");
 
-                    b.HasKey("InnovationId", "UserId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("InnovationId");
 
                     b.HasIndex("UserId");
 
@@ -226,6 +229,22 @@ namespace data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Processes");
+                });
+
+            modelBuilder.Entity("model.ReasonForAction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("InnovationId");
+
+                    b.Property<string>("Reason");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InnovationId");
+
+                    b.ToTable("ReasonForAction");
                 });
 
             modelBuilder.Entity("model.Result", b =>
@@ -405,7 +424,7 @@ namespace data.Migrations
                         .HasForeignKey("InnovationCategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("model.InnovationType", "Type")
+                    b.HasOne("model.InnovationType", "InnovationType")
                         .WithMany()
                         .HasForeignKey("InnovationTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -445,6 +464,14 @@ namespace data.Migrations
                 {
                     b.HasOne("model.Innovation", "Innovation")
                         .WithMany("Notifications")
+                        .HasForeignKey("InnovationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("model.ReasonForAction", b =>
+                {
+                    b.HasOne("model.Innovation", "Innovation")
+                        .WithMany()
                         .HasForeignKey("InnovationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -19,7 +19,8 @@ namespace model
         public int InnovationId { get; set; }
         public virtual Innovation Innovation { get; set; }
 
+        [ForeignKey("UserRoleId")]
         public int UserRoleId { get; set; }
-        public UserRole UserRole { get; set; }
+        public virtual UserRole UserRole { get; set; }
     }
 }

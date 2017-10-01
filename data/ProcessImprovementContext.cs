@@ -29,6 +29,7 @@ namespace data
         public DbSet<Process> Processes { get; set; }
         public DbSet<Widget> Widgets { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<ReasonForAction> ReasonForAction { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
