@@ -12,8 +12,8 @@ namespace api.Models
         public string Title { get; set; }
         public string Type { get; set; }
         public string Widget { get; set; }
-        public string Owner { get; set; }
-        public DateTime Date { get; set; }
+        public User Owner { get; set; }
+        public string Date { get; set; }
 
         public static IEnumerable<InnovationModel> Create(IEnumerable<Innovation> innovations)
         {
@@ -26,8 +26,8 @@ namespace api.Models
                     Title = innovation.Title,
                     Type = innovation.InnovationType.Name,
                     Widget = innovation.Widget.Name,
-                    Owner = innovation.InnovationUsers.Where(u => u.UserRoleId == 4).Single().User.Name,
-                    Date = innovation.Date
+                    Owner = innovation.InnovationUsers.Where(u => u.UserRoleId == 4).Single().User,
+                    Date = innovation.Date.ToString("y")
                 });
             }
             return temp;
