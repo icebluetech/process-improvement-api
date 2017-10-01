@@ -17,7 +17,8 @@ namespace model
         public int Provided { get; set; }
         public int TimeTaken { get; set; }
         public int Correct { get; set; }
-        public int Satisfied { get; set; }
+        public int EmpSatisfied { get; set; }
+        public int CustSatisfied { get; set; }
         public int BacklogNumber { get; set; }
         public int BacklogWork { get; set; }
         public int Handoffs { get; set; }
